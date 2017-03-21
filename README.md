@@ -12,7 +12,7 @@ npm install itslearning
 
 ##### Usage
 
-For full API documentation, please visit the site.
+For full API documentation, please visit the [documentation site](https://alexgustafsson.github.io/itslearning/).
 
 ```JavaScript
 const ItsLearning = require('itslearning');
