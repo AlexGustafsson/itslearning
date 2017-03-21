@@ -1,0 +1,53 @@
+{
+  "name": "itslearning",
+  "version": "0.0.1",
+  "description": "An API for everything itslearning",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && node ./test/itslearning.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexgustafsson/itslearning.git"
+  },
+  "keywords": [
+    "itslearning",
+    "api"
+  ],
+  "author": "Alex Gustafsson",
+  "license": "ISC",
+  "devDependencies": {
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "curly": [
+        "error",
+        "multi-or-nest",
+        "consistent"
+      ],
+      "no-use-before-define": [
+        "error",
+        {
+          "classes": false
+        }
+      ],
+      "unicorn/catch-error-name": [
+        "error",
+        {
+          "name": "error"
+        }
+      ],
+      "dot-notation": [
+        "off"
+      ],
+      "quote-props": [
+        "off"
+      ]
+    }
+  },
+  "dependencies": {
+    "axios": "^0.15.3"
+  }
+}
