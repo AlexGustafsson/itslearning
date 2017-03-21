@@ -1,5 +1,5 @@
 # It's Learning API for Node JS
-### A fully async API for the It's Learning platform
+### A fully async API written in ES6 for the It's Learning platform
 ***
 
 ### Setting up
