@@ -53,7 +53,7 @@ npm install
 
 Follow the conventions enforced:
 ```
-npm test
+USERNAME='' PASSWORD='' INSTITUTE='' npm test
 ```
 
 ### Disclaimer

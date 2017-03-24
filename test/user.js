@@ -83,7 +83,6 @@ test('Fetching news', t => {
       authenticatedUser.fetchComments(newsItem.id)
       .then(comments => {
         t.is(Array.isArray(comments), true);
-        // TODO check comments item
       });
     }
   }).catch(t.fail);
