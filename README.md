@@ -1,6 +1,7 @@
 # It's Learning API for Node JS
 ### A fully async API written in ES6 for the It's Learning platform
 ***
+![npm badge](https://img.shields.io/npm/v/itslearning.svg)
 
 ### Setting up
 
@@ -31,6 +32,7 @@ ItsLearning.searchOrganisation('Blekinge Tekniska Högskola')
     user.fetchUnreadMessagesCount() // returns promise. Resolves with a count
     user.fetchNews() // returns a promise. Resolves with a list of news
     user.fetchComments(id) // returns a promise. Resolves with a list of comments
+    user.fetchMessageThreads() // returns a promise. Resolves with a list of message threads
   });
 });
 ```
