@@ -10,12 +10,14 @@ const INSTITUTE = process.env.INSTITUTE;
 
 let authenticatedUser = null;
 
+// Executed first to ensure availability later
 test.before('Needed environment variables are set', t => {
   t.is(typeof USERNAME, 'string');
   t.is(typeof PASSWORD, 'string');
   t.is(typeof INSTITUTE, 'string');
 });
 
+// Authenticate user - used for all following tests
 test.cb.before('Can authenticate user', t => {
   ItsLearning.searchOrganisation(INSTITUTE)
   .then(ItsLearning.fetchOrganisation)
@@ -32,14 +34,52 @@ test.cb.before('Can authenticate user', t => {
   }).catch(t.fail);
 });
 
-test.before('Can\'t access info before .fetchInfo()', t => {
-  t.is(typeof authenticatedUser.firstName, 'undefined');
+test.before('Can\'t access personal info before .fetchPersonalInfo()', t => {
+  t.is(authenticatedUser.firstName, null);
 });
 
-test('Can access info after .fetchInfo()', t => {
-  authenticatedUser.fetchInfo()
-  .then(() => {
+test.before('Can\'t access courses before .fetchCourses()', t => {
+  t.is(authenticatedUser.courses, null);
+});
+
+// Ensure that info is available before further format tests
+test.cb.before('Can access personal info after .fetchPersonalInfo()', t => {
+  authenticatedUser.fetchPersonalInfo()
+  .then(user => {
+    // Returns itself for easier function chaining
+    t.is(user instanceof User, true);
     t.is(typeof authenticatedUser.firstName, 'string');
+    t.end();
+  }).catch(t.fail);
+});
+
+// Ensure that info is available before further format tests
+test.cb.before('Can access courses after .fetchCourses()', t => {
+  authenticatedUser.fetchCourses()
+  .then(user => {
+    // Returns itself for easier function chaining
+    t.is(user instanceof User, true);
+    t.is(Array.isArray(authenticatedUser.courses), true);
+    t.end();
+  }).catch(t.fail);
+});
+
+// Ensure that info is available before further format tests
+test.cb.before('Can access tasks after .fetchTasks()', t => {
+  authenticatedUser.fetchTasks()
+  .then(user => {
+    // Returns itself for easier function chaining
+    t.is(user instanceof User, true);
+    t.is(Array.isArray(authenticatedUser.tasks), true);
+    t.end();
+  }).catch(t.fail);
+});
+
+test('Can fetch info', t => {
+  authenticatedUser.fetchInfo()
+  .then(user => {
+    // Returns itself for easier function chaining
+    t.is(user instanceof User, true);
   }).catch(t.fail);
 });
 
@@ -104,4 +144,24 @@ test('Fetching message threads', t => {
       }
     }
   });
+});
+
+test('Courses are parsed correctly', t => {
+  t.is(Array.isArray(authenticatedUser.courses), true);
+  if (authenticatedUser.courses[0]) {
+    const course = authenticatedUser.courses[0];
+
+    t.is(typeof course, 'object');
+    t.is(typeof course.id, 'number');
+  }
+});
+
+test('Tasks are parsed correctly', t => {
+  t.is(Array.isArray(authenticatedUser.tasks), true);
+  if (authenticatedUser.tasks[0]) {
+    const task = authenticatedUser.tasks[0];
+
+    t.is(typeof task, 'object');
+    t.is(typeof task.id, 'number');
+  }
 });

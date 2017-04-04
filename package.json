@@ -1,6 +1,6 @@
 {
   "name": "itslearning",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "An API for everything itslearning",
   "main": "index.js",
   "scripts": {

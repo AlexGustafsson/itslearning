@@ -11,7 +11,7 @@
 npm install itslearning
 ```
 
-##### Usage
+##### Quickstart
 
 For full API documentation, please visit the [documentation site](https://alexgustafsson.github.io/itslearning/).
 
@@ -26,8 +26,10 @@ ItsLearning.searchOrganisation('Blekinge Tekniska Högskola')
   // Authenticate
   organisation.authenticate('username', 'password')
   .then(user => {
-    // Fetch personal information (stores the values to the user object)
-    user.fetchInfo() //returns promise
+    user.fetchTasks() // returns promise. Resolves with updated user
+    user.fetchCourses() // returns promise. Resolves with updated user
+    user.fetchPersonalInfo() // returns promise. Resolves with updated user
+    user.fetchInfo() //returns promise. Resolves with updated user when the three above functions are resolved
     user.fetchUnreadNotificationsCount() // returns promise. Resolves with a count
     user.fetchUnreadMessagesCount() // returns promise. Resolves with a count
     user.fetchNews() // returns a promise. Resolves with a list of news

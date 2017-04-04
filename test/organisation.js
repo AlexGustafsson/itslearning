@@ -8,6 +8,7 @@ const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
 const INSTITUTE = process.env.INSTITUTE;
 
+// Executed first to ensure availability later
 test.before('Needed environment variables are set', t => {
   t.is(typeof USERNAME, 'string');
   t.is(typeof PASSWORD, 'string');
