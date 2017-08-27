@@ -247,11 +247,11 @@ The API exports two methods, <code class="prettyprint">searchOrganisation</code>
 <p>Searching for an organisation</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">ItsLearning</span><span class="p">.</span><span class="nx">searchOrganisation</span><span class="p">(</span><span class="s1">'Blekinge Tekniska Högskola'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">matches</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`A match was: </span><span class="p">${</span><span class="nx">match</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">}</span><span class="s2"> with the id </span><span class="p">${</span><span class="nx">match</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// there was an error with the request</span>
-<span class="p">});</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">matches</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`A match was: </span><span class="p">${</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">}</span><span class="s2"> with the id </span><span class="p">${</span><span class="nx">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// there was an error with the request</span>
+  <span class="p">});</span>
 </code></pre>
 <h3 id="takes">Takes</h3>
 
