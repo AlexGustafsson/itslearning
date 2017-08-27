@@ -15,11 +15,11 @@ The API exports two methods, `searchOrganisation` and `fetchOrganisation`.
 
 ```javascript
 ItsLearning.searchOrganisation('Blekinge Tekniska Högskola')
-.then(matches => {
-  console.log(`A match was: ${match[0].name} with the id ${match[0].id}`);
-}).catch(error => {
-  // there was an error with the request
-});
+  .then(matches => {
+    console.log(`A match was: ${matches[0].name} with the id ${matches[0].id}`);
+  }).catch(error => {
+    // there was an error with the request
+  });
 ```
 
 ### Takes
